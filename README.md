@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# React 19 API エクスプローラー
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 目的
+- React 19 までの様々な API を実践的に探索
+- 新機能・既存 API の機能と特性の理解
 
-Currently, two official plugins are available:
+## 技術スタック
+- **React 19.0.0** - 最新の React バージョン
+- **TypeScript** - 型安全なコード開発
+- **Vite** - 高速な開発環境と最適化されたビルド
+- **React Router 7.3.0** - 最新のルーティング機能
+- **DaisyUI** - UIコンポーネントライブラリ
+- **Biome** - コード品質とフォーマットのためのツール
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 開発コマンド
+```bash
+# 依存関係のインストール
+pnpm install
 
-## Expanding the ESLint configuration
+# 開発サーバーの起動
+pnpm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# プロジェクトのビルド
+pnpm run build
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# ビルドしたプロジェクトのプレビュー
+pnpm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## プロジェクト構成
+- `src/main.tsx` - アプリケーションのエントリーポイント
+- `src/routes.tsx` - ルート定義
+- `src/pages/` - ページコンポーネント
+- `src/components/` - 再利用可能なコンポーネント
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Biome 設定
+```json
+{
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	}
+}
 ```
+
+## TypeScript 設定
+- 厳格な設定採用
+- 詳細は `tsconfig.app.json` と `tsconfig.node.json` を参照
+
+※このREADMEはAIによって生成されました。
