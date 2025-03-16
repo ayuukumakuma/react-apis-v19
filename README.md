@@ -56,4 +56,57 @@ pnpm run preview
 - 厳格な設定採用
 - 詳細は `tsconfig.app.json` と `tsconfig.node.json` を参照
 
+## 型安全なルーティング
+
+このプロジェクトではTSによる型安全なルーティングを実装しています。
+
+### 使い方
+
+1. ルーティング定義は `src/routes.tsx` で行います
+2. ルートパスの型を生成するには以下のコマンドを実行します:
+
+```bash
+pnpm run generate-routes
+```
+
+3. 型安全なリンク作成には `AppLink` コンポーネントを使用します:
+
+```tsx
+import { AppLink } from './components/AppLink';
+
+// 型安全なリンク
+<AppLink to="/hooks/use-state">useState</AppLink>
+
+// 動的パラメータを持つルートの場合
+<AppLink 
+  to="/user/:id" 
+  params={{ id: "123" }}
+>
+  ユーザープロフィール
+</AppLink>
+```
+
+4. 関数内でのナビゲーションには `navigateTo` 関数を使用します:
+
+```tsx
+import { navigateTo } from './components/AppLink';
+import { useNavigate } from 'react-router-dom';
+
+function MyComponent() {
+  const navigate = useNavigate();
+  
+  function handleClick() {
+    // 型安全なナビゲーション
+    navigate(navigateTo('/hooks/use-state'));
+    
+    // パラメータを持つルートの場合
+    navigate(navigateTo('/user/:id', { id: '123' }));
+  }
+  
+  return <button onClick={handleClick}>移動</button>;
+}
+```
+
+型システムによりタイプミスや存在しないルートへの参照が防止されます。
+
 ※このREADMEはAIによって生成されました。

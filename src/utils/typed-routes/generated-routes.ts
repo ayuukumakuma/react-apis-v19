@@ -7,20 +7,24 @@
 export type AppPaths =
   | '/'
   | '/hooks'
-  | '/hooks/use-effect'
-  | '/hooks/use-state'
-  | '/use-effect'
-  | '/use-state';
+  | '/hooks/use-action-state'
+  | '/hooks/use-id'
+  | '/hooks/use-optimistic'
+  | '/use-action-state'
+  | '/use-id'
+  | '/use-optimistic';
 
 // ネストされたルート構造
 export type AppRoutes = {
   '/': string;
   '/hooks': {
-    '/use-effect': string;
-    '/use-state': string;
+    '/use-action-state': string;
+    '/use-id': string;
+    '/use-optimistic': string;
   };
-  '/use-effect': string;
-  '/use-state': string;
+  '/use-action-state': string;
+  '/use-id': string;
+  '/use-optimistic': string;
 };
 
 // パスを型安全に構築するためのヘルパー関数
