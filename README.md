@@ -1,4 +1,4 @@
-# React 19 API エクスプローラー
+# React 19 API サンプル
 
 ## 目的
 - React 19 までの様々な API を実践的に探索
